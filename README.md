@@ -1,6 +1,6 @@
 # `Ref`
 
-A small C++23 header-only **shared handle** around `std::shared_ptr<T>`, designed to help you apply [**make illegal states unrepresentable**](https://blog.janestreet.com/effective-ml-revisited/) (Yaron Minsky, *Effective ML*): types and constraints so invalid handles and common foot-guns **cannot be spelled** in normal code, instead of relying on runtime checks.
+A small C++23 header-only **shared handle** around `std::shared_ptr<T>`, designed to help you apply [**make illegal states unrepresentable**](https://functional-architecture.org/make_illegal_states_unrepresentable/): types and constraints so invalid handles and common foot-guns **cannot be spelled** in normal code, instead of relying on runtime checks.
 
 There is **no nullable handle** in the public API. Every `Ref<T>` that exists was either constructed with valid constructor arguments or copied from another `Ref`.
 
