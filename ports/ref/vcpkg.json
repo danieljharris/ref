@@ -1,0 +1,7 @@
+{
+  "name": "ref",
+  "version": "0.1.0",
+  "description": "C++23 non-null shared handle Ref<T> around std::shared_ptr",
+  "homepage": "https://github.com/danieljharris/ref",
+  "license": "MIT"
+}

@@ -2,7 +2,7 @@
 
 A small C++23 header-only **shared handle** around `std::shared_ptr<T>` with **no nullable handle** in the public API. Every `Ref<T>` that exists was either constructed with valid constructor arguments or copied from another `Ref`.
 
-**File:** [`include/ref.hpp`](include/ref.hpp) — vendor the header or add the `include` directory to your project.
+**Header:** [`include/ref/ref.hpp`](include/ref/ref.hpp) — `#include <ref/ref.hpp>`
 
 ## What it is
 
@@ -43,10 +43,53 @@ A small C++23 header-only **shared handle** around `std::shared_ptr<T>` with **n
 - C++23 (concepts, `std::constructible_from`, etc.)
 - Standard library: `<memory>`, `<concepts>`, `<type_traits>`, `<utility>`
 
+## CMake
+
+```cmake
+find_package(ref CONFIG REQUIRED)
+target_link_libraries(your_target PRIVATE ref::ref)
+```
+
+```cpp
+#include <ref/ref.hpp>
+```
+
+Installed layout: `include/ref/ref.hpp`, `share/cmake/ref/refConfig.cmake`.
+
+## vcpkg
+
+**Overlay port (ships in this repo):**
+
+```bash
+git clone https://github.com/danieljharris/ref.git
+vcpkg install ref --overlay-ports=ref/ports
+```
+
+**Consumer `vcpkg.json`:**
+
+```json
+{
+  "dependencies": [
+    "ref"
+  ]
+}
+```
+
+(Set `VCPKG_OVERLAY_PORTS` to this repo’s `ports` directory, or add it in your toolchain chain file.)
+
+**CMake after install:**
+
+```cmake
+find_package(ref CONFIG REQUIRED)
+target_link_libraries(app PRIVATE ref::ref)
+```
+
+Release tags (`v0.1.0`, …) match `ports/ref/vcpkg.json` version; the portfile downloads the matching tag from GitHub.
+
 ## Example
 
 ```cpp
-#include "ref.hpp"
+#include <ref/ref.hpp>
 
 Ref<int> a(1);
 Ref<int> b = a;          // share
