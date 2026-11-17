@@ -5,5 +5,8 @@
   "homepage": "https://github.com/danieljharris/ref",
   "license": "MIT",
   "supports": "!uwp",
-  "dependencies": []
+  "dependencies": [
+    "vcpkg-cmake",
+    "vcpkg-cmake-config"
+  ]
 }
