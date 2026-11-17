@@ -1,6 +1,8 @@
 # `Ref`
 
-A small C++23 header-only **shared handle** around `std::shared_ptr<T>` with **no nullable handle** in the public API. Every `Ref<T>` that exists was either constructed with valid constructor arguments or copied from another `Ref`.
+A small C++23 header-only **shared handle** around `std::shared_ptr<T>`, designed to help you apply [**make illegal states unrepresentable**](https://quanttype.net/posts/2020-06-15-implicit-invariants.html): types and constraints so invalid handles and common foot-guns **cannot be spelled** in normal code, instead of relying on runtime checks.
+
+There is **no nullable handle** in the public API. Every `Ref<T>` that exists was either constructed with valid constructor arguments or copied from another `Ref`.
 
 **Header:** [`include/ref/ref.hpp`](include/ref/ref.hpp) — `#include <ref/ref.hpp>`
 
